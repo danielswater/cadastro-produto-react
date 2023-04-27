@@ -1,10 +1,9 @@
+import RouteApp from "./routes";
 
 
 function App() {
     return (
-        <div>
-            <h1>Funcionando</h1>
-        </div>
+        <RouteApp />
     );
 }
 
