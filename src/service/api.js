@@ -7,5 +7,8 @@ const api = axios.create({
 export const service = {
     getProdutos: () => {
         return api.get('/api/produtos')
+    },
+    postProduto: (produto) => {
+        return api.post('/api/add-produtos', produto)
     }
 }

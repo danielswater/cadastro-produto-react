@@ -1,3 +1,11 @@
 .produto-container {
     margin: 0 auto;
 }
+
+.produto-container h1 {
+    margin-bottom: 50px;
+}
+
+.card-produto {
+    margin-bottom: 30px;
+}
