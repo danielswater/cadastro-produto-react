@@ -33,7 +33,7 @@ function Home() {
         return diasRestantes
     }
 
-    if (produtos.status == 'erro') {
+    if (produtos.status === 'erro') {
         return (
             <h1>{produtos.mensagem}</h1>
         )

@@ -19,6 +19,8 @@ function CadastroProduto() {
         data_validade: ''
     });
 
+    const [sucesso, setSucesso] = useState(false)
+
     const [validated, setValidated] = useState(false);
 
     const handleChange = (event) => {
@@ -51,20 +53,32 @@ function CadastroProduto() {
             data.append("imagem", formData.imagem)
             service.postProduto(data)
                 .then((response) => {
-                    console.log(response)
+                    toast.success("Cadastro realizado com sucesso!")
+                    setSucesso(true)
+
                 })
                 .catch((error) => {
                     console.log(error)
                 })
-            event.preventDefault();
-            event.stopPropagation()
+
         }
+        event.preventDefault();
+        event.stopPropagation()
         setValidated(true)
     };
 
-    function formatDate(date) {
-        return format(date, 'yyyy-mm-dd')
-    }
+    useEffect(() => {
+        if (sucesso) {
+            setFormData({
+                nome: '',
+                descricao: '',
+                preco: '',
+                data_validade: ''
+            })
+            setSucesso(false)
+            setValidated(false)
+        }
+    })
 
     return (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
